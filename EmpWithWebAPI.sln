@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpWithWebAPI", "EmpWithWebAPI\EmpWithWebAPI.csproj", "{4ED783C8-408A-45DF-884D-389C379910EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO", "..\StudentsProj\ADO\ADO.csproj", "{4AC6A70C-1310-400A-D229-D42EF39D1266}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ED783C8-408A-45DF-884D-389C379910EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED783C8-408A-45DF-884D-389C379910EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED783C8-408A-45DF-884D-389C379910EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED783C8-408A-45DF-884D-389C379910EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC6A70C-1310-400A-D229-D42EF39D1266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC6A70C-1310-400A-D229-D42EF39D1266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC6A70C-1310-400A-D229-D42EF39D1266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC6A70C-1310-400A-D229-D42EF39D1266}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52FDDBA5-BE38-4DCB-8075-228976476A72}
+	EndGlobalSection
+EndGlobal
