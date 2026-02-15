@@ -1,0 +1,80 @@
+﻿@model ADO.Models.Employee
+@{
+    ViewData["Title"] = "Create Employee";
+    var departments = ViewBag.Departments as List<ADO.Models.Department>;
+    var desg = ViewBag.Designations as List<ADO.Models.Desgination>;
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4>Create Employee</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <input type="hidden" asp-for="EmpId" />
+
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="DOJ" class="form-label"></label>
+                    <input asp-for="DOJ" type="date" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Department</label>
+                    <select asp-for="DeptID" class="form-select" id="deptDropdown">
+                        <option value="">Select Department</option>
+                        @foreach (var d in departments)
+                        {
+                            <option value="@d.DeptID">@d.DeptName</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Designation</label>
+                    <select asp-for="DesgID" class="form-select" id="desgDropdown">
+                        <option value="">Select Designation</option>
+                        @foreach(var d in desg)
+                        {
+                            <option value="@d.DesgID">@d.DesgName</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Profile Image</label>
+                    <input name="Img" type="file" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("deptDropdown").addEventListener("change", function () {
+            let deptId = this.value;
+            fetch('/Home/GetDesignations?deptId=' + deptId)
+                .then(res => res.json())
+                .then(data => {
+                    let desg = document.getElementById("desgDropdown");
+                    desg.innerHTML = "<option>Select Designation</option>";
+                    data.forEach(d => {
+                        desg.innerHTML += `<option value="${d.desgID}">${d.desgName}</option>`;
+                    });
+                });
+        });
+    </script>
+}

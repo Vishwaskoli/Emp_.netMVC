@@ -1,0 +1,27 @@
+﻿@model ADO.Models.Employee
+
+<div class="container mt-5">
+    <div class="card shadow border-danger">
+        <div class="card-header bg-danger text-white">
+            <h4>Delete Employee</h4>
+        </div>
+
+        <div class="card-body">
+            <p class="fs-5">
+                Are you sure you want to delete
+                <strong>@Model.Name</strong>?
+            </p>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="EmpId" />
+
+                <button type="submit" class="btn btn-danger">
+                    Delete
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

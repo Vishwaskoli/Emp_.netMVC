@@ -1,0 +1,70 @@
+﻿@model ADO.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Employee Details</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+
+                <!-- Profile Image -->
+                <div class="col-md-4 text-center mb-4">
+                    @if (Model.ProfileImg != null)
+                    {
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ProfileImg)"
+                             class="img-fluid rounded-circle border border-3"
+                             style="width:180px; height:180px; object-fit:cover;" />
+                    }
+                    else
+                    {
+                        <div class="bg-secondary text-white d-flex align-items-center justify-content-center rounded-circle"
+                             style="width:180px; height:180px;">
+                            N/A
+                        </div>
+                    }
+                </div>
+
+                <!-- Employee Info -->
+                <div class="col-md-8">
+                    <dl class="row">
+
+                        <dt class="col-sm-4">Employee ID</dt>
+                        <dd class="col-sm-8">@Model.EmpId</dd>
+
+                        <dt class="col-sm-4">Name</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4">Department</dt>
+                        <dd class="col-sm-8">@ViewBag.Department.DeptName</dd>
+
+                        <dt class="col-sm-4">Designation ID</dt>
+                        <dd class="col-sm-8">@ViewBag.Desgination.DesgName</dd>
+
+                        <dt class="col-sm-4">Date of Joining</dt>
+                        <dd class="col-sm-8">
+                            @Model.DOJ.ToString("dd MMM yyyy")
+                        </dd>
+
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card-footer text-end">
+            <a asp-action="Edit" asp-route-id="@Model.EmpId" class="btn btn-warning">
+                Edit
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
